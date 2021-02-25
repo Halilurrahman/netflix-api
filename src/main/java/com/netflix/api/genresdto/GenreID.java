@@ -1,5 +1,5 @@
 
-package com.netflix.api.dto;
+package com.netflix.api.genresdto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,13 +11,13 @@ import java.util.List;
 @JsonPropertyOrder({
     "results"
 })
-public class Videos {
+public class GenreID {
 
     @JsonProperty("results")
     private List<Result> results = null;
 
     @JsonProperty("results")
-    public List<Result> getResults() {
+    public List<com.netflix.api.genresdto.Result> getResults() {
         return results;
     }
 
@@ -25,4 +25,5 @@ public class Videos {
     public void setResults(List<Result> results) {
         this.results = results;
     }
+
 }

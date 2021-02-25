@@ -62,7 +62,6 @@ public class MovieDetailsDto {
     }
 
 
-
     public List<Result> getResult() {
         return result;
     }

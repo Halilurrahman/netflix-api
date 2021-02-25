@@ -22,9 +22,12 @@ public class Credits {
 
     public String getDirector() {
         String director = "Director";
-        Crew listOfCrewWithDirector = crew.stream().filter(t -> t.getJob().equals(director)).findFirst().get();
-        return listOfCrewWithDirector.getName();
-
+       try {
+           Crew listOfCrewWithDirector = crew.stream().filter(t -> t.getJob().equals(director)).findFirst().get();
+           return listOfCrewWithDirector.getName();
+       } catch(Exception e){
+           return " is unknown.";
+        }
     }
 
     @JsonProperty("cast")

@@ -1,13 +1,14 @@
 
 package com.netflix.api.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieLogoDto {
 
     private String tmdb_id;
-    private List<Hdmovielogo> hdmovielogo = null;
-    private List<Moviethumb> moviethumb = null;
+    private List<Hdmovielogo> hdmovielogo = new ArrayList();
+    private List<Moviethumb> moviethumb = new ArrayList();
 
     public String getTmdb_id() {
         return tmdb_id;
@@ -23,14 +24,24 @@ public class MovieLogoDto {
 
     public String getFirstLogo() {
         String en = "en";
-        Hdmovielogo firstLogo = hdmovielogo.stream().filter(l -> l.getLang().equals(en)).findFirst().get();
-        return firstLogo.getUrl();
+        try {
+            Hdmovielogo firstLogo = hdmovielogo.stream().filter(l -> l.getLang().equals(en)).findFirst().get();
+            return firstLogo.getUrl();
+        } catch (Exception e) {
+            //           this returns the logo for all is lost
+            return "https://assets.fanart.tv/fanart/movies/152747/hdmovielogo/all-is-lost-526338003f164.png";
+        }
     }
 
     public String getFirstThumbnail() {
         String en = "en";
-        Moviethumb firstMovieThumb = moviethumb.stream().filter(mt -> mt.getLang().equals(en)).findAny().get();
-        return firstMovieThumb.getUrl();
+       try {
+           Moviethumb firstMovieThumb = moviethumb.stream().filter(mt -> mt.getLang().equals(en)).findAny().get();
+           return firstMovieThumb.getUrl();
+       }catch (Exception e){
+           //            this returns the moviethumb for all is lost
+           return "https://assets.fanart.tv/fanart/movies/152747/moviethumb/all-is-lost-52f5aefbc7be3.jpg";
+       }
     }
 
     public void setHdmovielogo(List<Hdmovielogo> hdmovielogo) {

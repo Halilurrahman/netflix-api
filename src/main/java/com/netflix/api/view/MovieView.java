@@ -17,14 +17,17 @@ public class MovieView {
     private String backdropPath;
     private List<Genre> genres;
     private String youtubeKey;
-
     private String movieThumbUrl;
     private String logoUrl;
     private String director;
 
-//    private Videos videos;
+    //    private Videos videos;
 //    private List<Result> result;
 //    private Credits credits;
+
+    public String toString() {
+        return ("id =" + id + " title = " + title + " runtime= " + runtime);
+    }
 
     public String getLogoUrl() {
         return logoUrl;
@@ -37,6 +40,7 @@ public class MovieView {
     public String getDirector() {
         return director;
     }
+
     public void setDirector(Credits credits) {
         this.director = credits.getDirector();
     }
@@ -68,6 +72,10 @@ public class MovieView {
 
     public void setYoutubeKey(Result youtubeKey) {
         this.youtubeKey = youtubeKey.getKey();
+    }
+
+    public void setYoutubeKey(String youtubeKey) {
+        this.youtubeKey = youtubeKey;
     }
 
     public List<Genre> getGenres() {
