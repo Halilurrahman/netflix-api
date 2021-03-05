@@ -1,1 +1,2 @@
 netflix-api
+This Repo contains one half of our final TechGrounds Academy assignment, it contains a Java application, an API, which runs in Spring Boot. It provides the data to the netflix clone which was mainly built by our frontend crew. The Backend connects to two existing databases to fetch and combine information, visuals and trailers to send to the frontend. The latest feature was a search by person(actors) element which was implemented in the frontend by another team.
